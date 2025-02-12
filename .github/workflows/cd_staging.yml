@@ -5,16 +5,15 @@ on:
       - main
 jobs:
   redeploy_everything:
-    name:Deploying everrything to staging:
     runs-on: ubuntu-latest
-
+    name:Deploying everrything to staging:
     steps:
-    name: SSH into server
-    run: |
-        ssh -i ${{ secrets.PRIVATE_SECRET_KEY}} ubuntu@15.207.221.106
-        cd turbo-devops && git pull
-        pnpm install
-        pnpm run build
-        pm2 restart all
+      name: SSH into server
+      run: |
+          ssh -i ${{ secrets.PRIVATE_SECRET_KEY}} ubuntu@15.207.221.106
+          cd turbo-devops && git pull
+          pnpm install
+          pnpm run build
+          pm2 restart all
 
 
