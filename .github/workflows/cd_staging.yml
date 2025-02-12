@@ -1,14 +1,15 @@
+---
 name: Deploy to Staging
 on:
   push:
-    branches: [main]
-      
+    branches:
+      - main
 jobs:
   redeploy_everything:
     name: Deploying everrything to staging
     runs-on: ubuntu-latest
     steps:
-     - name: executing remote ssh commands using password
+      - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: 15.207.221.106
@@ -16,10 +17,8 @@ jobs:
           key: ${{ secrets.PRIVATE_SECRET_KEY }}
           port: 22
           script: |
-           ls
-          cd turbo-devops
-          pnpm install
-          pnpm run build
-          pm2 restart all
-
-
+            ls
+            cd turbo-devops
+            pnpm install
+            pnpm run build
+            pm2 restart all
