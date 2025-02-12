@@ -18,7 +18,4 @@ jobs:
           port: 22
           script: |
             ls
-            cd turbo-devops
-            pnpm install
-            pnpm run build
-            pm2 restart all
+            cd turbo-devops && pnpm install && pnpm run build && pm2 restart all
