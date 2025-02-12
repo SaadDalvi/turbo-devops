@@ -1,15 +1,14 @@
 name: Deploy to Staging
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+      
 jobs:
   redeploy_everything:
     runs-on: ubuntu-latest
     name:Deploying everrything to staging:
     steps:
-      name: SSH into server
-      run: |
+      - run: |
           ssh -i ${{ secrets.PRIVATE_SECRET_KEY}} ubuntu@15.207.221.106
           cd turbo-devops && git pull
           pnpm install
