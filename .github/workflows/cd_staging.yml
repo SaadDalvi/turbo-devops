@@ -17,12 +17,5 @@ jobs:
           key: ${{ secrets.PRIVATE_SECRET_KEY }}
           port: 22
           script: |
-            source ~/.bashrc
-            source ~/.profile
             ls
-            cd turbo-devops
-            ls
-            git pull
-            pnpm install
-            pnpm run build
-            pm2 restart all
+            cd turbo-devops && git pull && pnpm install && pnpm run build && pm2 restart all
