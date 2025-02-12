@@ -5,12 +5,19 @@ on:
       
 jobs:
   redeploy_everything:
-    runs-on: ubuntu-latest
     name: Deploying everrything to staging
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          ssh -i ${{ secrets.PRIVATE_SECRET_KEY}} ubuntu@15.207.221.106
-          cd turbo-devops && git pull
+     - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: 15.207.221.106
+          username: ubuntu
+          key: ${{ secrets.PRIVATE_SECRET_KEY }}
+          port: 22
+          script: |
+           ls
+          cd turbo-devops
           pnpm install
           pnpm run build
           pm2 restart all
