@@ -18,4 +18,4 @@ jobs:
           port: 22
           script: |
             ls
-            cd turbo-devops && git pull && pnpm install && pnpm run build && pm2 restart all
+            cd turbo-devops && git pull && export PATH=/home/ubuntu/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && pnpm install && pnpm run build && pm2 restart all
