@@ -19,6 +19,7 @@ jobs:
           script: |
             ls
             cd turbo-devops
+            ls
             git pull
             pnpm install
             pnpm run build
