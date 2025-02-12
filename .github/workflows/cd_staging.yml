@@ -6,7 +6,7 @@ on:
 jobs:
   redeploy_everything:
     runs-on: ubuntu-latest
-    name:Deploying everrything to staging:
+    name: Deploying everrything to staging
     steps:
       - run: |
           ssh -i ${{ secrets.PRIVATE_SECRET_KEY}} ubuntu@15.207.221.106
