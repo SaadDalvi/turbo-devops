@@ -16,10 +16,10 @@ jobs:
           username: ubuntu
           key: ${{ secrets.PRIVATE_SECRET_KEY }}
           port: 22
-          run: |
+            script: |
             ls
-            cd turbo-devops 
+            cd turbo-devops
             git pull
-            pnpm install 
-            pnpm run build 
+            pnpm install
+            pnpm run build
             pm2 restart all
