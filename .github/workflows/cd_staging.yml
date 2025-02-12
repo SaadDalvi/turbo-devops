@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: SSH into server
-    - run: |
+    name: SSH into server
+    run: |
         ssh -i ${{ secrets.PRIVATE_SECRET_KEY}} ubuntu@15.207.221.106
         cd turbo-devops && git pull
         pnpm install
